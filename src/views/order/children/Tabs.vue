@@ -2,22 +2,22 @@
   <div>
     <tab-content
       :productions="allGoods"
-      v-show="(active == 0 || active == '0')"
+      v-show="(RealActive == 0 || RealActive == '0')"
       ref="bscroll"
     ></tab-content>
     <tab-content
       :productions="del"
-      v-show="(active == 1 || active == '1')"
+      v-show="(RealActive == 1 || RealActive == '1')"
       ref="bscroll"
     ></tab-content>
     <tab-content
       :productions="tak"
-      v-show="(active == 2 || active == '2')"
+      v-show="(RealActive == 2 || RealActive == '2')"
       ref="bscroll"
     ></tab-content>
     <tab-content
       :productions="wait"
-      v-show="(active == 3 || active == '3')"
+      v-show="(RealActive == 3 || RealActive == '3')"
       ref="bscroll"
     ></tab-content>
   </div>
@@ -39,7 +39,6 @@ export default {
   },
   props: {
     active: {
-      type: Number,
       default() {
         return 0;
       },
@@ -55,6 +54,9 @@ export default {
   },
   computed: {
     ...mapGetters(["getUserInfo", "delGoods", "takGoods", "waitGoods"]),
+    RealActive() {
+      return this.active;
+    },
     allGoods() {
       // let newDelgoods = this.delGoods;
       // this.delGoods.map &&

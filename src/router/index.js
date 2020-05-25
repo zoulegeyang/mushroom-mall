@@ -13,7 +13,6 @@ const Edit = () => import("../views/edit/Edit");
 const ConfirmOrder = () => import("../views/confirmOrder/ConfirmOrder");
 const PayOrder = () => import("../views/payOrder/PayOrder");
 const Order = () => import("../views/order/Order");
-const test = () => import("../views/test./test");
 const Evaluate = () => import("../views/evaluate/Evaluate");
 const Address = () => import("../views/address/Address");
 const AddressEdit = () => import("../views/address/childeren/AddressEdit");
@@ -65,10 +64,6 @@ const routes = [
   {
     path: "/order",
     component: Order,
-  },
-  {
-    path: "/test",
-    component: test,
   },
   {
     path: "/evaluate",
