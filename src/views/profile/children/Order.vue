@@ -16,7 +16,9 @@
           size="30"
           class="icon"
           :badge="
-            getUserInfo.delgoods.length ? getUserInfo.delgoods.length : ''
+            getUserInfo && getUserInfo.delgoods && getUserInfo.delgoods.length
+              ? getUserInfo.delgoods.length
+              : ''
           "
         />
         <span style="font-size: 12px;">待付款</span>
@@ -36,7 +38,9 @@
           size="30"
           class="icon"
           :badge="
-            getUserInfo.takgoods.length ? getUserInfo.takgoods.length : ''
+            getUserInfo && getUserInfo.takgoods && getUserInfo.takgoods.length
+              ? getUserInfo.takgoods.length
+              : ''
           "
         />
         <span style="font-size: 12px;">待收货</span>
@@ -50,6 +54,8 @@
           size="30"
           class="icon"
           :badge="
+            getUserInfo &&
+            getUserInfo.waitPaygoods &&
             getUserInfo.waitPaygoods.length
               ? getUserInfo.waitPaygoods.length
               : ''
@@ -62,7 +68,11 @@
           name="refund-o"
           size="30"
           class="icon"
-          :badge="getUserInfo.refund.length ? getUserInfo.refund.length : ''"
+          :badge="
+            getUserInfo && getUserInfo.refund && getUserInfo.refund.length
+              ? getUserInfo.refund.length
+              : ''
+          "
         />
         <span style="font-size: 12px;">退款售后</span>
       </van-grid-item>

@@ -6,6 +6,10 @@
           item
         }}</span>
       </div>
+      <div class="set-item" v-for="item in set" :key="item.key">
+        <div>{{ item.key }}</div>
+        <div>{{ item.value }}</div>
+      </div>
     </div>
   </div>
 </template>
@@ -20,11 +24,16 @@ export default {
         return [];
       },
     },
+    set: {
+      type: Array,
+      default() {
+        return [];
+      },
+    },
   },
   computed: {
     filterTable() {
       let newtable = this.table && this.table.length > 0 && this.table[0]; // [ [1,,2,3 ], ['-,-,-]]
-      console.log(newtable);
       let news =
         newtable &&
         newtable.filter((item) => {
@@ -45,7 +54,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .test {
   width: 300px;
   margin: 20px 0;
@@ -62,5 +71,25 @@ export default {
   width: 50px;
   line-height: 40px;
   font-size: 14px;
+}
+.set-item {
+  display: flex;
+  height: 40px;
+  align-items: center;
+  border-bottom: 1px solid #eee;
+  font-size: 14px;
+  text-align: center;
+  :first-child {
+    position: relative;
+    right: 3px;
+    flex: 2;
+  }
+  :last-child {
+    flex: 6;
+    color: #f08899;
+  }
+}
+.params {
+  box-shadow: 0 3px 0 rgba($color: #eee, $alpha: 0.5);
 }
 </style>

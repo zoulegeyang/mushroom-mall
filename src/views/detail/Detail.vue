@@ -15,8 +15,12 @@
         :detailImage="detailImage"
         @imgLoad="imageLoad"
       ></detail-image-info>
-      <detail-params ref="params" :table="params"></detail-params>
-      <detail-comment ref="comment"></detail-comment>
+      <detail-params
+        ref="params"
+        :table="params"
+        :set="infoSet"
+      ></detail-params>
+      <detail-comment ref="comment" :remark="remark"></detail-comment>
       <detail-recommend
         :recommend="recommend"
         ref="recommend"
@@ -69,6 +73,8 @@ export default {
       jump: null,
       payProduct: null,
       params: null,
+      infoSet: null,
+      remark: null,
     };
   },
   components: {
@@ -106,6 +112,8 @@ export default {
       );
       this.shopInfo = new shopInfo(this.result.shopInfo);
       this.params = res.result.itemParams.rule.tables;
+      this.infoSet = res.result.itemParams.info.set;
+      this.remark = res.result.rate;
       this.detailImage = res.result.detailInfo;
     });
     // 不能这样写 因为其它地方不能拿到created中创建的东西 所以需要找一个公共的地方来存放函数

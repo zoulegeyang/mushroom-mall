@@ -61,7 +61,7 @@ export default {
             this.$http.get("empty").then((result) => {
               if (result.data.code == 200) {
                 this.userKeeper(result.data.userInfo);
-                this.$toast.show("评价成功");
+                this.$toast.show("评价成功", 2000);
                 this.$router.go(-1);
               }
             });

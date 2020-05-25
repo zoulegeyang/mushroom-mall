@@ -8,7 +8,7 @@
       @click-right="goToOrder"
     ></van-nav-bar>
     <div class="total">
-      $ <span>{{ totalPrice }}</span>
+      $ <span>{{ totalPrice | price }}</span>
     </div>
     <div class="selectPayMethods">
       <van-cell-group>

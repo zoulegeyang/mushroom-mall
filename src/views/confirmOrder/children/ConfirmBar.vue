@@ -42,6 +42,9 @@ export default {
 .total {
   margin: 0 10px;
 }
+.left {
+  display: flex;
+}
 .price {
   font-size: 20px;
   color: #f84087;

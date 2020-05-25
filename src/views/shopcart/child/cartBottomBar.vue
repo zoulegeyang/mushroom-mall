@@ -8,7 +8,8 @@
     <div class="check-text">全选</div>
     <!-- <div v-if="barShow" class="showMai"> -->
     <div class="total-price" v-if="barShow">
-      <span>合计:${{ totalPrice }}</span>
+      <span class="des">合计:</span>
+      <span class="price">${{ totalPrice }}</span>
     </div>
     <div class="total" v-if="barShow" @click="barConfirm">
       <span>去计算({{ totalCount }})</span>
@@ -17,11 +18,11 @@
     <!-- <div v-else class="delete-bar"> -->
     <van-button
       round
-      plain
       size="small"
       class="dele-button"
       v-else
       @click="deletGoods"
+      color="red"
       >删除</van-button
     >
     <!-- </div>   -->
@@ -181,15 +182,16 @@ export default {
 };
 </script>
 
-<style scoped>
+<style scope lang="scss">
 .cart-bottom-bar {
   display: flex;
   height: 40px;
   line-height: 40px;
-  background-color: #eeeeef;
+  background-color: #ffffff;
   align-items: center;
 }
 .check-text {
+  padding-left: 10px;
   font-size: 10px;
 }
 .check {
@@ -202,9 +204,14 @@ export default {
   flex: 1;
   display: flex;
   height: 100%;
+  font-size: 15px;
   align-items: center;
-  justify-content: center;
-  color: #999;
+  /* justify-content: center; */
+  color: #666;
+  .price {
+    color: black;
+    font-weight: 500;
+  }
   /* line-height: 100%; */
   /* vertical-align: center; */
   /* text-align: center; */
@@ -224,6 +231,9 @@ export default {
   align-items: center;
   justify-content: center;
   color: #fff;
+}
+.des {
+  padding-left: 16px;
 }
 .delete-bar {
   position: absolute;

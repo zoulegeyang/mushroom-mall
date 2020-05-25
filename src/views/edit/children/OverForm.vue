@@ -30,15 +30,24 @@
                 ]"
                 v-if="flag == '手机号'"
               ></van-field>
-              <van-field
-                v-model="password"
-                placeholder="请输入密码"
-                type="password"
-                required
-                label="密码"
-                v-else-if="flag == '密码'"
-                maxlength="12"
-              ></van-field>
+              <div v-else-if="flag == '密码'">
+                <van-field
+                  v-model="password"
+                  placeholder="请输入密码"
+                  type="password"
+                  required
+                  label="密码"
+                  maxlength="12"
+                ></van-field>
+                <van-field
+                  v-model="confirmPwd"
+                  placeholder="请再次输入密码"
+                  type="password"
+                  label="确认密码"
+                  required
+                ></van-field>
+              </div>
+
               <van-field
                 v-model="email"
                 placeholder="请输入邮箱"
@@ -52,20 +61,35 @@
                   },
                 ]"
               ></van-field>
-              <van-field
-                v-model="paypwd"
-                placeholder="请输入支付密码"
-                v-else-if="flag == '支付密码'"
-                type="password"
-                label="支付密码"
-                required
-                :rules="[
-                  {
-                    pattern: /^[0-9]{6}$/,
-                    message: '格式不对',
-                  },
-                ]"
-              ></van-field>
+              <div v-else-if="flag == '支付密码'">
+                <van-field
+                  v-model="paypwd"
+                  placeholder="请输入支付密码"
+                  type="password"
+                  label="支付密码"
+                  required
+                  :rules="[
+                    {
+                      pattern: /^[0-9]{6}$/,
+                      message: '格式不对',
+                    },
+                  ]"
+                ></van-field>
+                <van-field
+                  v-model="confirmPwd"
+                  placeholder="请再次输入密码"
+                  type="password"
+                  label="确认密码"
+                  required
+                  :rules="[
+                    {
+                      pattern: /^[0-9]{6}$/,
+                      message: '格式不对',
+                    },
+                  ]"
+                ></van-field>
+              </div>
+
               <van-field
                 v-model="authCode"
                 placeholder="请输入验证码"
@@ -113,6 +137,7 @@ export default {
       authCode: "",
       paypwd: "",
       buttonText: "获取验证码",
+      confirmPwd: "",
     };
   },
   created() {
@@ -136,7 +161,20 @@ export default {
       console.log("失败了");
     },
     onSubmit() {
-      // console.log("成功");
+      // 看密码是否一致
+      if (this.flag == "支付密码") {
+        if (this.paypwd != this.confirmPwd) {
+          this.$toast.show("密码不一致", 1000);
+          return;
+        }
+      }
+      if (this.flag == "密码") {
+        if (this.password != this.confirmPwd) {
+          this.$toast.show("密码不一致", 1000);
+          return;
+        }
+      }
+      this.confirmPwd = "";
       // 根据flag的值动态发请求
       var tmp = "";
       switch (this.flag) {

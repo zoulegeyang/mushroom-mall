@@ -1,25 +1,30 @@
 // getters相当于Vue组件中的computed 所以里面的对象都是函数实现的方法
 export default {
   length(state) {
-    return state.userInfo.cartList.length;
+    return (
+      state &&
+      state.userInfo &&
+      state.userInfo.cartList &&
+      state.userInfo.cartList.length
+    );
   },
   list(state) {
-    return state.userInfo.cartList;
+    return state.userInfo && state.userInfo.cartList;
   },
   delGoods(state) {
-    return state.userInfo.delgoods;
+    return state.userInfo && state.userInfo.delgoods;
   },
   takGoods(state) {
-    return state.userInfo.takgoods;
+    return state.userInfo && state.userInfo.takgoods;
   },
   waitGoods(state) {
-    return state.userInfo.waitPaygoods;
+    return state.userInfo && state.userInfo.waitPaygoods;
   },
   getUserInfo(state) {
-    return state.userInfo;
+    return state && state.userInfo;
   },
   getTrait(state) {
-    return state.userInfo.protrait;
+    return state.userInfo && state.userInfo.protrait;
   },
   getAddress(state) {
     return state.userInfo.address;

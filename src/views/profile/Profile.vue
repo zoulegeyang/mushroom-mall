@@ -68,8 +68,8 @@ export default {
   width: 100%;
   color: #fff;
   background-color: #f08899;
-  height: 44px;
-  line-height: 44px;
+  height: 46px !important;
+  line-height: 46px !important;
   text-align: center;
   font-weight: bold;
   position: fixed;

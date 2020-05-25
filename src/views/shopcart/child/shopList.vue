@@ -82,6 +82,7 @@ export default {
   height: 120px;
   align-items: center;
   border-bottom: 1px solid #eee;
+  background-color: #fff;
 }
 .check {
   width: 8%;

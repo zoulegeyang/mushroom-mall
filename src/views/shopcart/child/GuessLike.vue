@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="realLike">
     <div class="like">猜你喜欢</div>
     <goods-list :goods="goods" class="goods"></goods-list>
   </div>
@@ -23,9 +23,18 @@ export default {
 };
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .like {
+  background-color: #fff;
+  position: relative;
+  z-index: 1;
   text-align: center;
   margin-top: 10px;
+  .goods {
+    background-color: #fff;
+  }
+}
+.realLike {
+  background-color: #fff;
 }
 </style>

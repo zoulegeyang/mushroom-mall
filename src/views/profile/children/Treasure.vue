@@ -3,7 +3,11 @@
     <div>
       <div>
         <div class="first">
-          <span>{{ getUserInfo.balance | price }}</span> 元
+          <span v-if="getUserInfo.phone != '10000000000'">{{
+            getUserInfo.balance | price
+          }}</span>
+          <span v-else>0</span>
+          元
         </div>
         <div class="second">我的余额</div>
       </div>
@@ -11,7 +15,9 @@
     <div>
       <div>
         <div class="first">
-          <span>{{ getUserInfo && getUserInfo.discount.length }}</span
+          <span>{{
+            getUserInfo && getUserInfo.discount && getUserInfo.discount.length
+          }}</span
           >个
         </div>
         <div class="second">我的优惠券</div>

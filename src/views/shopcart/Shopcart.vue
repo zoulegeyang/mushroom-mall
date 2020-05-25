@@ -1,5 +1,5 @@
 <template>
-  <div class="category">
+  <div class="shopcart">
     <nav-bar class="nav">
       <div slot="center" class="center">购物车({{ length }})</div>
       <div slot="right" class="nav-right" v-show="length > 0">
@@ -135,8 +135,12 @@ export default {
 </script>
 
 <style>
-.category {
+.shopcart {
   height: 100vh;
+  background-color: #eee;
+}
+.not-have {
+  background: #fff;
 }
 .nav {
   /* background-color: pink; */

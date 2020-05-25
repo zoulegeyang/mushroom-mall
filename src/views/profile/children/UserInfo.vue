@@ -41,12 +41,7 @@
       </div>
     </div>
     <!-- 编辑用户详情页面 -->
-    <van-icon
-      name="arrow"
-      class="arrow"
-      color="#fff"
-      @click="$router.push('edit')"
-    />
+    <van-icon name="arrow" class="arrow" color="#fff" @click="goEdit" />
   </div>
 </template>
 
@@ -105,6 +100,13 @@ export default {
         return false;
       }
       return true;
+    },
+    goEdit() {
+      if (this.getUserInfo.phone != "10000000000") {
+        this.$router.push("edit");
+      } else {
+        this.$toast.show("需登录才能编辑", 2000);
+      }
     },
     // chufaLoad() {
     //   this.fileLoad
