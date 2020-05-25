@@ -85,7 +85,7 @@ const routes = [
 ];
 const router = new VueRouter({
   routes,
-  mode: "hash",
+  mode: "history",
 });
 // 若想进入编辑页面需要先登录
 let whiteItems = [
